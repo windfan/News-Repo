@@ -1,0 +1,93 @@
+<form name="urlForm" class="form-horizontal text-left" ng-submit="urlForm.$valid && AddUrlCtrl.addUrl(urlForm)" >
+
+  <div class="input-container">
+    <fieldset class="form-group">
+      <label for="title" class="col-sm-2 control-label">Title:</label>
+      <span class="col-sm-9">
+        <input type="text" class="form-control" id="title" placeholder="Link Title" ng-model="AddUrlCtrl.link.title" required>
+      </span>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <label for="url" class="control-label col-sm-2">Link:</label>
+      <span class="col-sm-9">
+        <input type="url" id="url" name="homepage" class="form-control" placeholder="Paste your link here with http:// or https://" ng-model="AddUrlCtrl.link.url" required>
+      </span>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <label class="control-label col-sm-2" for="description">Description:</label>
+      <span class="col-sm-9">
+        <textarea type="text" id="description" class="form-control" placeholder="Why not add some descriptions?" rows="3" ng-model="AddUrlCtrl.link.description"></textarea>
+      </span>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <label class="control-label col-sm-2" >Folder:</label>
+      <span class="col-sm-9">
+        <select class="form-control" id="categories" ng-init="AddUrlCtrl.link.categories = 'undefined'"ng-model="AddUrlCtrl.link.categories" required>
+          <option ng-repeat="category in categories" value="{{category}}">{{category | capitalize}}</option>
+        </select>
+      </span>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <label class="control-label col-sm-2" >Hashtag:</label>
+      <span class="col-sm-9">
+        <label class="checkbox-inline" ng-repeat="hashtag in hashtags" for="{{hashtag}}">
+          <input type="checkbox" name="{{hashtag}}" id="{{hashtag}}" value="{{hashtag}}" ng-model="AddUrlCtrl.link.hashtags[hashtag]"> {{hashtag | capitalize}}
+        </label>
+      </span>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <span class="col-sm-9 col-sm-offset-2 button-from-hell">
+        <button class="btn btn-primary">Add Link</button>
+      </span>
+    </fieldset>
+  </div>
+
+<!--   <section ng-show="AddUrlCtrl.link.url" class="text-center">
+    <div class="row live-preview">
+      <div class="col-md-2"></div>
+      <div class="col-md-2">
+      <h4>Title:</h4>
+      </div>
+      <div class="col-md-6">
+        <h4>{{AddUrlCtrl.link.title}}<h4>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-2">
+        <h4>Link:</h4>
+      </div>
+      <div class="col-md-6">
+        <h4><a href="{{link.url}}" target=_black >{{AddUrlCtrl.link.url}}</a></h4>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-2">
+        <p>Description:</p>
+      </div>
+      <div class="col-md-6">
+        <p>{{AddUrlCtrl.link.description}}<p>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-2">
+        <span>{{AddUrlCtrl.link.categories | capitalize}}<span>
+      </div>
+      <div class="col-md-6">
+        <span class="label label-primary" ng-repeat="(hashtag, state) in AddUrlCtrl.link.hashtags" ng-show="state">{{hashtag | capitalize}}</span>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </section> -->
+
+</form>
