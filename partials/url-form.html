@@ -1,32 +1,32 @@
-<form name="urlForm" class="form-horizontal text-left" ng-submit="urlForm.$valid && AddUrlCtrl.addUrl(urlForm)" >
+<form name="urlForm" class="form-horizontal text-left" ng-controller="FormCtrl" ng-submit="urlForm.$valid && checkbox(hashtags);urlForm.$valid && saveLink()" id="link-form">
 
   <div class="input-container">
     <fieldset class="form-group">
       <label for="title" class="col-sm-2 control-label">Title:</label>
       <span class="col-sm-9">
-        <input type="text" class="form-control" id="title" placeholder="Link Title" ng-model="AddUrlCtrl.link.title" required>
+        <input type="text" class="form-control" id="title" placeholder="Link Title" ng-model="inputTitle"required>
       </span>
     </fieldset>
 
     <fieldset class="form-group">
       <label for="url" class="control-label col-sm-2">Link:</label>
       <span class="col-sm-9">
-        <input type="url" id="url" name="homepage" class="form-control" placeholder="Paste your link here with http:// or https://" ng-model="AddUrlCtrl.link.url" required>
+        <input type="url" id="url" name="homepage" class="form-control" placeholder="Paste your link here with http:// or https://" ng-model="inputUrl" required>
       </span>
     </fieldset>
 
     <fieldset class="form-group">
       <label class="control-label col-sm-2" for="description">Description:</label>
       <span class="col-sm-9">
-        <textarea type="text" id="description" class="form-control" placeholder="Why not add some descriptions?" rows="3" ng-model="AddUrlCtrl.link.description"></textarea>
+        <textarea type="text" id="description" class="form-control" placeholder="Why not add some descriptions?" rows="3" ng-model="inputDescription"></textarea>
       </span>
     </fieldset>
 
     <fieldset class="form-group">
       <label class="control-label col-sm-2" >Folder:</label>
       <span class="col-sm-9">
-        <select class="form-control" id="categories" ng-init="AddUrlCtrl.link.categories = 'undefined'"ng-model="AddUrlCtrl.link.categories" required>
-          <option ng-repeat="category in categories" value="{{category}}">{{category | capitalize}}</option>
+        <select class="form-control" id="categories" ng-model="inputCategory" required>
+          <option ng-repeat="category in categories" value="{{category.$value}}">{{category.$value | capitalize}}</option>
         </select>
       </span>
     </fieldset>
@@ -35,7 +35,7 @@
       <label class="control-label col-sm-2" >Hashtag:</label>
       <span class="col-sm-9">
         <label class="checkbox-inline" ng-repeat="hashtag in hashtags" for="{{hashtag}}">
-          <input type="checkbox" name="{{hashtag}}" id="{{hashtag}}" value="{{hashtag}}" ng-model="AddUrlCtrl.link.hashtags[hashtag]"> {{hashtag | capitalize}}
+          <input type="checkbox" name="{{hashtag.$value}}" id="{{hashtag.$value}}" value="{{hashtag.$value}}" ng-model="hashtag.SELECTED" ng-true-value="true" ng-false-value="false"> {{hashtag.$value | capitalize}}
         </label>
       </span>
     </fieldset>

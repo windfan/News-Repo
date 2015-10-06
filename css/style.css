@@ -9,3 +9,16 @@
 .ng-dirty.ng-valid {  
 	border-color: #78FA89; 
 }
+
+.folder-tabs {
+	border: 2px solid #dddddd;
+	margin-left: 5px;
+	border-radius: 10px 10px 0px 0px;
+}
+
+hr {
+	border: none;
+	height: 2px;
+	color: #dddddd;
+	background-color: grey;
+}
