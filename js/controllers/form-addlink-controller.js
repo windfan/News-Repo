@@ -8,22 +8,33 @@
 			// var newsRef = $firebaseArray(profileRef.child("profiles").child("ryu1031").child("news"));
 			// $scope.form = Form("ryu1031");
 			// console.log($scope.form);
-			$scope.checkbox = function(data){
-				var obj = [];
-				for(var i in data) {
-					if(data[i].SELECTED == 'true') {
-						obj.push(data[i].id);
+			// $scope.checkbox = function(data){
+			// 	var obj = [];
+			// 	for(var i in data) {
+			// 		if(data[i].SELECTED == 'true') {
+			// 			obj.push(data[i].id);
+			// 		}
+			// 	}
+			// 	console.log(obj);
+			// }
+			function checkbox(hashtags) {
+				var arr = {};
+				for(var hashtag in hashtags) {
+					if(hashtags[hashtag].SELECTED === true){
+						arr[hashtags[hashtag].$value] = true;
 					}
 				}
-				console.log(obj);
+				return arr;
 			}
-			$scope.saveLink = function(){
+			$scope.saveLink = function(hashtags){
 				var profileRef = new Firebase("https://news-repo.firebaseio.com/");
 				var form = $firebaseArray(profileRef.child("profiles").child("ryu1031").child("news").child($scope.inputCategory));
-				// console.log(whole.title);
+				console.log(hashtags);
+				var obj = checkbox(hashtags);
+				console.log(obj);
 				form.$add({
 					description: $scope.inputDescription,
-					hashtags: $scope.hashtag,
+					hashtags: obj,
 					time: Firebase.ServerValue.TIMESTAMP,
 					title: $scope.inputTitle,
 					url: $scope.inputUrl
