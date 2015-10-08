@@ -26,18 +26,20 @@
       <label class="control-label col-sm-2" >Folder:</label>
       <span class="col-sm-9">
         <select class="form-control" id="categories" ng-model="inputCategory" required>
-          <option ng-repeat="category in categories" value="{{category.$value}}">{{category.$value | capitalize}}</option>
+          <option ng-repeat="category in categories" value="{{category.$value}}">{{category.$value | capitalized}}</option>
         </select>
       </span>
+      <button type="button" class="btn btn-info" ng-click="addCategory()">New</button>
     </fieldset>
 
     <fieldset class="form-group">
       <label class="control-label col-sm-2" >Hashtag:</label>
       <span class="col-sm-9">
         <label class="checkbox-inline" ng-repeat="hashtag in hashtags" for="{{hashtag}}">
-          <input type="checkbox" name="{{hashtag.$value}}" id="{{hashtag.$value}}" value="{{hashtag.$value}}" ng-model="hashtag.SELECTED" ng-true-value="true" ng-false-value="false"> {{hashtag.$value | capitalize}}
+          <input type="checkbox" name="{{hashtag.$value}}" id="{{hashtag.$value}}" value="{{hashtag.$value}}" ng-model="hashtag.SELECTED" ng-true-value="true" ng-false-value="false"> {{hashtag.$value | capitalized}}
         </label>
       </span>
+      <button type="button" class="btn btn-info" ng-click="addHashtag()">New</button>
     </fieldset>
 
     <fieldset class="form-group">

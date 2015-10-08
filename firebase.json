@@ -1,0 +1,9 @@
+{
+  "firebase": "news-repo",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

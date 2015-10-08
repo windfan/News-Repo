@@ -1,4 +1,4 @@
-<div class="col-md-8 text-left">
+<div class="col-md-10 text-left">
   <div class="row">
     <div class="col-md-2">
       <button class="btn btn-primary" ng-click="FormCtrl.showForm = !FormCtrl.showForm">
@@ -14,7 +14,7 @@
     <li class="list-group-item" ng-repeat="category in urls">
       <div class="row" style="border-bottom: 1px solid #dddddd">
         <ul class="nav nav-tabs">
-          <li role="presentation" class="folder-tabs"><a href ng-click="expand = !expand">{{category.$id | capitalize}}</a></li>
+          <li role="presentation" class="folder-tabs"><a href ng-click="expand = !expand">{{category.$id | capitalized}}</a></li>
         </ul>
         <!-- <div class="col-md-2">
         <h4>Category:</h4>
@@ -28,8 +28,13 @@
           <div class="col-md-2">
           <h4>Title:</h4>
           </div>
-          <div class="col-md-10">
+          <div class="col-md-8">
             <h4>{{post.title}}<h4>
+          </div>
+          <div class="col-md-1 pull-right">
+            <a href class="pull-right"aria-label="Delete"ng-click="deletePost()">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </a>
           </div>
         </div>
         <div class="row">
@@ -51,7 +56,7 @@
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-10">
-            <span class="label label-primary" ng-repeat="(hashtag, state) in post.hashtags" ng-show="state">{{hashtag | capitalize}}</span>
+            <span class="label label-primary" ng-repeat="(hashtag, state) in post.hashtags" ng-show="state">{{hashtag | capitalized}}</span>
           </div>
         </div>
         <hr>
