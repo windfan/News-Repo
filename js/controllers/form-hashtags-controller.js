@@ -4,8 +4,9 @@
 	
 	.controller('AddUrlController', ['$scope', '$firebaseArray', function($scope, $firebaseArray){
 		var profileRef = new Firebase("https://news-repo.firebaseio.com/");
-		$scope.hashtags = $firebaseArray(profileRef.child('hashtags'));
-		$scope.categories = $firebaseArray(profileRef.child('categories'));
+		var authData = profileRef.getAuth();
+		$scope.hashtags = $firebaseArray(profileRef.child('profiles').child(authData.uid).child('hashtags'));
+		$scope.categories = $firebaseArray(profileRef.child('profiles').child(authData.uid).child('categories'));
 		// $scope.form = Form("ryu1031", "undefined");
 		// console.log($scope.form);
 		// $scope.saveLink = function(){

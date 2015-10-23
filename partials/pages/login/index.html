@@ -1,0 +1,18 @@
+<div class="row" >
+    <div class="col-md-12 text-center">
+      <br><br>
+      <h1>Hi, welcome to News-Repo!</h1>
+      <h3>This place is a repository for your own links.</h3>
+      <h3>You can create your own folders to categorize your links.</h3>
+      <h3>You can also give the links hashtags to help you manage your repository.</h3>
+      <b>*Please log in first to access your news.</b>
+      <br><br><br>
+      <span ng-hide="authData">
+      	<button type="button" class="btn btn-info" ng-click="login()" >Login using Google Account</button> 
+      </span>
+      <span ng-show="authData">
+        <button type="button" class="btn btn-info" ng-click="logout()">Log Out</button> 
+      </span>
+    </div>
+
+</div>
