@@ -7,12 +7,14 @@
       <h3>You can also give the links hashtags to help you manage your repository.</h3>
       <b>*Please log in first to access your news.</b>
       <br><br><br>
-      <span ng-hide="authData">
-      	<button type="button" class="btn btn-info" ng-click="login()" >Login using Google Account</button> 
+      <span>
+      	<button type="button" class="btn btn-info" ng-click="login()" id="loginBtn">Login using Google Account</button> 
       </span>
-      <span ng-show="authData">
-        <button type="button" class="btn btn-info" ng-click="logout()">Log Out</button> 
+      <span>
+        <button type="button" class="btn btn-info" ng-click="logout()" id="logoutBtn">Log Out</button> 
       </span>
+      <h5>Known issue: After Logging in, the login button doesn't disappear.</h5>
+      <h5>Solution: After logging in, you can go to visit your news directly, the button will change to log out.</h5>
     </div>
 
 </div>
