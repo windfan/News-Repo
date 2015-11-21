@@ -10,7 +10,6 @@
 		  		var profileRef = ref.child(username);
 
 		  		// return it as a synchronized object
-		  		// console.log($firebaseObject(profileRef));
 		  		return $firebaseObject(profileRef);
 			}
 		}

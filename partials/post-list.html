@@ -1,12 +1,12 @@
 <div class="col-md-10 text-left">
   <div class="row">
     <div class="col-md-2">
-      <button class="btn btn-primary" ng-click="FormCtrl.showForm = !FormCtrl.showForm">
-        {{FormCtrl.showForm ? "Cancel" : "Add a Link"}}
+      <button class="btn btn-primary" ng-click="showForm = !showForm">
+        {{showForm ? "Cancel" : "Add a Link"}}
       </button>
     </div>
     <div class="col-md-10">
-      <url-form ng-show="FormCtrl.showForm"></url-form>
+      <url-form ng-show="showForm"></url-form>
     </div>
   </div>
   <hr>
@@ -16,12 +16,6 @@
         <ul class="nav nav-tabs">
           <li role="presentation" class="folder-tabs"><a href ng-click="expand = !expand">{{category.$id | capitalized}}</a></li>
         </ul>
-        <!-- <div class="col-md-2">
-        <h4>Category:</h4>
-        </div>
-        <div class="col-md-10">
-          <h4>{{key | capitalize}}<h4>
-        </div> -->
       </div>
       <div ng-repeat="post in category" class="slide" ng-show="expand">
         <div class="row">

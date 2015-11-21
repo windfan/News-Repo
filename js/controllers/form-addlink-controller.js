@@ -2,8 +2,9 @@
 	'use strict';
 	angular.module('newsRepo')
 	
-	.controller('FormCtrl', ['$scope', '$firebaseArray', function($scope, $firebaseArray){
-			this.showForm = false;
+	.controller('FormCtrl', ['$scope', '$firebaseArray', 'Category', 'Hashtag', 
+		function($scope, $firebaseArray, Category, Hashtag){
+			$scope.showForm = false;
 			function checkbox(hashtags) {
 				var arr = {};
 				for(var hashtag in hashtags) {
@@ -15,9 +16,7 @@
 			}
 
 			$scope.addCategory = function() {
-				var profileRef = new Firebase("https://news-repo.firebaseio.com/");
-				var authData = profileRef.getAuth();
-				var category = $firebaseArray(profileRef.child('profiles').child(authData.uid).child("categories"));
+				var category = Category();
 				var newCategory = prompt("Please enter your new folder name.");
 				if(newCategory != "") {
 					category.$add(newCategory).then(function(){
@@ -30,9 +29,7 @@
 			}
 
 			$scope.addHashtag = function() {
-				var profileRef = new Firebase("https://news-repo.firebaseio.com/");
-				var authData = profileRef.getAuth();
-				var hashtag = $firebaseArray(profileRef.child('profiles').child(authData.uid).child("hashtags"));
+				var hashtag = Hashtag();
 				var newHashtag = prompt("Please enter a new hashtag.");
 				if(newHashtag != "") {
 					hashtag.$add(newHashtag).then(function(){
@@ -47,9 +44,7 @@
 				var profileRef = new Firebase("https://news-repo.firebaseio.com/");
 				var authData = profileRef.getAuth();
 				var form = $firebaseArray(profileRef.child("profiles").child(authData.uid).child("news").child($scope.inputCategory));
-				// console.log(hashtags);
 				var obj = checkbox(hashtags);
-				// console.log(obj);
 				form.$add({
 					description: $scope.inputDescription,
 					hashtags: obj,
@@ -68,8 +63,7 @@
 					for(var hashtag in hashtags) {
 						hashtags[hashtag].SELECTED = false;
 					}
-					this.showForm = false;
-					// this.showForm = !this.showForm;
+					$scope.showForm = false;
 				});
 			};
 		}

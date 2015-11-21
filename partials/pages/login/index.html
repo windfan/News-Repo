@@ -1,20 +1,116 @@
-<div class="row" >
-    <div class="col-md-12 text-center">
+<div class="row">
+  <div class="col-md-8 text-center">
+    <div ng-show="show.intro">
       <br><br>
-      <h1>Hi, welcome to News-Repo!</h1>
-      <h3>This place is a repository for your own links.</h3>
+      <h1>NEWS-REPO</h1>
+      <h3>A place for your own links.</h3>
       <h3>You can create your own folders to categorize your links.</h3>
       <h3>You can also give the links hashtags to help you manage your repository.</h3>
-      <b>*Please log in first to access your news.</b>
+      <br>
+      <i>*Please log in first to access your news.</i>
       <br><br><br>
-      <span>
-      	<button type="button" class="btn btn-info" ng-click="login()" id="loginBtn">Login using Google Account</button> 
-      </span>
-      <span>
-        <button type="button" class="btn btn-info" ng-click="logout()" id="logoutBtn">Log Out</button> 
-      </span>
-      <h5>Known issue: After Logging in, the login button doesn't disappear.</h5>
-      <h5>Solution: After logging in, you can go to visit your news directly, the button will change to log out.</h5>
     </div>
+
+    <fieldset class="form-group text-center" ng-show="show.intro">
+      <span class="col-sm-12 text-center">
+        <button class="btn btn-primary" ng-click="signupBtn()">Sign Up</button>
+        <br><br>
+        <div class="input-container" ng-show="signUp">
+          <form name="registrationForm" novalidate>
+            <fieldset class="form-group">
+              <label class="control-label col-sm-3">Account:</label>
+              <span class="col-sm-9">
+                <input type="email" class="form-control" name="username" placeholder="Email" id="signUpAccount" ng-model="signUpAccount"required>
+                <div ng-messages="registrationForm.username.$error" ng-messages-include="partials/messages.html"></div>
+              </span>
+            </fieldset>        
+
+            <fieldset class="form-group">
+              <label class="control-label col-sm-3">Password:</label>
+              <span class="col-sm-9">
+                <input type="password" class="form-control" name="password" placeholder="Password" id="signUpPassword" ng-model="signUpPassword"required>
+                <div ng-messages="registrationForm.password.$error" ng-messages-include="partials/messages.html"></div>
+              </span>
+            </fieldset>
+
+            <fieldset class="form-group">
+              <label class="control-label col-sm-3">Verify Password:</label>
+              <span class="col-sm-9">
+                <input type="password" class="form-control" name="confirmPassword" placeholder="Re-type Password" id="rePassword" ng-model="signUpRePassword" required compare-to="signUpPassword">
+                <div ng-messages="registrationForm.confirmPassword.$error" ng-messages-include="partials/messages.html"></div>
+              </span>
+            </fieldset>
+          </form>
+
+<!--           <fieldset class="form-group">
+            <label class="control-label col-sm-3">Name:</label>
+            <span class="col-sm-9">
+              <input type="text" class="form-control" id="name" ng-model="signUpName"required>
+            </span>
+          </fieldset>   -->
+
+<!--           <fieldset class="form-group">
+            <label class="control-label col-sm-3">Email:</label>
+            <span class="col-sm-9">
+              <input type="email" class="form-control" id="email" ng-model="signUpEmail"required>
+            </span>
+          </fieldset> -->
+
+          <fieldset class="form-group text-center">
+            <span class="col-sm-12">
+              <button class="btn btn-default" ng-click="signUpBtn()">Create Account</button>
+            </span>
+          </fieldset>
+
+        </div>
+      </span>
+    </fieldset>        
+  </div>
+
+  <div class="col-md-4">
+    <span class="pull-right">
+      <br>
+      <button type="button" class="btn btn-info" ng-click="logout()" ng-show="authData">Log Out</button> 
+    </span>
+    <br><br><br>
+    <div class="input-container" ng-show="show.intro">
+      <fieldset class="form-group">
+        <label class="control-label col-sm-3">Account:</label>
+        <span class="col-sm-7">
+          <input type="text" class="form-control" id="account" ng-model="inputAccount"required>
+        </span>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label class="control-label col-sm-3">Password:</label>
+        <span class="col-sm-7">
+          <input type="password" class="form-control" id="password" ng-model="inputPassword"required>
+        </span>
+      </fieldset>
+
+      <fieldset class="form-group text-center">
+        <span class="col-sm-12">
+          <button class="btn btn-primary" ng-click="loginBtn()">Sign In</button>
+        </span>
+      </fieldset>
+
+      <div class="text-center">
+        <h4>Demo account:<br>
+          Acc: windfan1827@hotmail.com<br>
+          Pwd: demo123
+        </h4>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <span>
+        <br>
+        <button type="button" class="btn btn-info" ng-click="googleLogin()" ng-hide="authData">Login using Google Account</button> 
+      </span>
+    </div>
+
+    
+    <br><br><br>
+  </div>    
 
 </div>

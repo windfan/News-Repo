@@ -1,6 +1,6 @@
 (function(){
   	'use strict';
-  	var app = angular.module('newsRepo', ['posts-list', 'filters', 'animations', 'forms', 'firebase', 'ngRoute']);
+  	var app = angular.module('newsRepo', ['posts-list', 'filters', 'animations', 'forms', 'firebase', 'ngRoute', 'ngResource', 'compare-to', 'ngMessages']);
 
 	app.directive('navBar', function() {
 		return {
@@ -19,3 +19,4 @@
 		}
 	});	
 })();
+
