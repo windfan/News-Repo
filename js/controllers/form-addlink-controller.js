@@ -37,7 +37,7 @@
 					});
 				}
 				else {
-					alert("Please enter a folder name");
+					alert("Please enter a hashtag name");
 				}
 			}
 			$scope.saveLink = function(hashtags){

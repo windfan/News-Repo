@@ -7,10 +7,10 @@
 			$scope.urls = News();
 			$scope.deletePost = function() {
 				if(confirm('Delete?')) {
-					alert("Yoooo");
+					alert("Sorry, functionality is still building.");
 				}
 				else {
-					alert("Booooo");
+					alert("Sorry, functionality is still building.");
 				}
 			};
 		}
